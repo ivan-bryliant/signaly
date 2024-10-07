@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roadradio&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <title>Goldy Win</title>
+    <style>
+
+/* Основные стили */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: url('https://img.freepik.com/premium-photo/money-background_910325-13917.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Контейнер для страницы */
+#page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Начальная стилизация */
+.fade {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+       /* body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: url('https://telegra.ph/file/2be321f8d6eb3af1b09a5.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+*/
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        header img {
+            width: 400px;
+            height: auto;
+        }
+
+        .white-strip {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            margin-top: -50px;
+        }
+
+        .choose-game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px; /* Adjust this value to ensure there is no gap */
+        }
+
+        .choose-game-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 8px;
+            border: 2px solid white;
+            border-radius: 10px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            width: 200px;
+            border-bottom: none;
+        }
+
+        .choose-game-title h2 {
+            color: white;
+            font-size: 1em;
+            margin: 0;
+        }
+
+        p {
+            color: white;
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+        main {
+            text-align: center;
+            width: 85%;
+        }
+
+        .choose-game {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 20px 3px;
+            border: 2px solid white;
+            border-radius: 10px;
+/*            border-top-left-radius: 0;*/
+/*            border-top-right-radius: 0;*/
+            margin-top: 0;
+        }
+
+        .game-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .game img, .gamem img {
+            cursor: pointer;
+            width: 250px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .gamem img {
+            width: 280px;
+        }
+
+        footer {
+            margin-bottom: 35px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-buttons button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-buttons img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-buttons button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .nav-buttons button a {
+            display: block;
+            width: 60px;
+            height: 60px;
+        }
+
+        .nav-buttons button a img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .nav-buttons button:nth-child(1) {
+            border: 5px solid yellow;
+        }
+
+        .nav-buttons button:hover {
+            border: 5px solid yellow;
+        }
+                /* Стили для анимации перехода */
+        .fade {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <header>
+<!--             <img src="https://telegra.ph/file/85a1276a8dcba6fb68dde.png" alt="Goldy Win"> -->
+            <div class="white-strip"></div>
+        </header>
+        <main><div id="page-container" class="fade fade-in">
+            <div class="choose-game-container">
+                <div class="choose-game-title">
+                    <h2>Instruction</h2>
+                </div>
+                <div class="choose-game">
+                    <p>The bot is based on and trained using OpenAl's neural network cluster — [ChatGPT-v4).<br>
+                    For training, the bot played 🎰 over 8000 games. Currently, bot users successfully make 20-30% of their 💸 capital daily!<br>
+                    The bot is still learning, and its accuracy is at 85%! Follow these instructions for maximum profit:<br>
+                    🔸 1. Register at the 1WIN betting office. If it doesn't open - use a VPN (Sweden). I use VPN Super Unlimited Proxy Access to signals will not be available without registration!<br>
+                    🔸 2. Deposit funds into your account.<br>
+                    🔸 3. Go to the win games section and select the game.<br>
+                    🔸 4. Request a signal from the bot and place bets based on the bot's signals.<br>
+                    🔸 5. In case of a losing signal, we advise you to double (X2) your bet to fully cover the loss in the next signal.</p>
+                </div>
+            </div></div>
+        </main>
+        <footer>
+            <div class="nav-buttons">
+                <button>
+                    <a href="inf.html"><img src="https://telegra.ph/file/44c16a01848d13ed40cf8.png" alt="Info"></a>
+                </button>
+                <button>
+                    <a href="index.html"><img src="https://telegra.ph/file/95098cf7432e96f44ee23.png" alt="Home"></a>
+                </button>
+                <button>
+                    <a href="tg.html"><img src="https://telegra.ph/file/0ca73fe9cf9af79db43dc.png" alt="Telegram"></a>
+                </button>
+            </div>
+        </footer>
+    </div>
+</div>
+    <script>
+        // JavaScript для обработки переходов
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a');
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = link.getAttribute('href');
+
+                    document.getElementById('page-container').classList.add('fade-out');
+
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 200); // Должно совпадать с продолжительностью CSS-анимации
+                });
+            });
+        });
+    </script>
+</body>
+</html>

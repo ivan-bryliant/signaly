@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roadradio&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Goldy Win</title>
+    <style>
+/* Основные стили */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: url('https://img.freepik.com/premium-photo/money-background_910325-13917.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Контейнер для страницы */
+#page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Начальная стилизация */
+.fade {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* Остальные стили */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    margin-top: 20px;
+    text-align: center;
+}
+
+header img {
+    width: 400px;
+    height: auto;
+}
+
+.white-strip {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    margin-top: -50px;
+}
+
+.choose-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; /* Adjust this value to ensure there is no gap */
+}
+
+.choose-game-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px;
+
+    border: 2px solid white;
+    border-radius: 10px;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+    width: 60%;
+}
+
+.choose-game-title h2 {
+    color: white;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+main {
+    margin-top: 20px;
+    text-align: center;
+    width: 80%;
+}
+
+.choose-game {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 3px;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 85%;
+}
+
+.game-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.game img, .gamem img {
+    cursor: pointer;
+    width: 250px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.gamem img {
+    width: 280px;
+}
+
+footer {
+    margin-bottom: 35px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-buttons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    position: relative;
+}
+
+.nav-buttons button a {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.nav-buttons button a img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.nav-buttons button:nth-child(2) {
+    border: 5px solid yellow;
+}
+
+.nav-buttons button:hover {
+    border: 5px solid yellow;
+}
+
+
+        /* Стили для анимации перехода */
+        .fade {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="page-container" class="fade fade-in"> -->
+        <div class="container">
+            <header>
+<!--                 <img src="https://telegra.ph/file/85a1276a8dcba6fb68dde.png" alt="Goldy Win"> -->
+                <div class="white-strip"></div>
+            </header>
+
+            <main><div id="page-container" class="fade fade-in">
+                <div class="choose-game-container">
+                    <div class="choose-game-title">
+                        <h2>CHOOSE GAME</h2>
+                    </div>
+                    <div class="choose-game">
+                        <div class="game-options">
+                            <div class="gamem">
+                                <a href="miny.html"><img src="https://telegra.ph/file/dd9b8d916a74b367b75c1.png" alt="Mines"></a>
+                            </div>
+                            <div class="game">
+                                <a href="luky.html"><img src="https://telegra.ph/file/0111b8b9e30923a5a5edf.png" alt="Lucky Jet"></a>
+                            </div>
+                            <div class="game">
+                                <a href="avia.html"><img src="https://telegra.ph/file/32dfc84759b5384b4184f.png" alt="Aviator"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+            </main>
+
+            <footer>
+                <div class="nav-buttons">
+                    <button>
+                        <a href="inf.html"><img src="https://telegra.ph/file/44c16a01848d13ed40cf8.png" alt="Info"></a>
+                    </button>
+                    <button>
+                        <a href="index.html"><img src="https://telegra.ph/file/95098cf7432e96f44ee23.png" alt="Home"></a>
+                    </button>
+                    <button>
+                        <a href="tg.html"><img src="https://telegra.ph/file/0ca73fe9cf9af79db43dc.png" alt="Telegram"></a>
+                    </button>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script>
+        // JavaScript для обработки переходов
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a');
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = link.getAttribute('href');
+
+                    document.getElementById('page-container').classList.add('fade-out');
+
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 200); // Должно совпадать с продолжительностью CSS-анимации
+                });
+            });
+        });
+    </script>
+</body>
+</html>

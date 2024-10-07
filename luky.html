@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinesAI</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: url('https://img.freepik.com/premium-photo/money-background_910325-13917.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            text-align: center;
+            overflow: hidden; /* Убираем прокрутку */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .header img {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 10px 0;
+        }
+
+        .mint img {
+            width: 65%;
+            margin-top: -100px;
+        }
+
+        .subheader img {
+            width: 50%;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            margin-top: 10px; /* Уменьшаем отступ сверху */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative; /* Добавляем относительное позиционирование */
+            top: 10px; /* Поднимаем блок выше */
+        }
+
+        .controls label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .controls input[type=range] {
+            width: 200px;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 10px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .15s ease-in-out;
+            border-radius: 10px;
+            font-size: 2rem;
+        }
+
+        .controls input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #6200ea;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 50%;
+        }
+
+        .controls button {
+            width: 60%;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .controls button img {
+            width: 80%;
+        }
+
+        #signalButton {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #topImage {
+            width: 120%;
+            margin-top: 80px; /* Поднимаем изображение выше */
+        }
+
+        #signalButton img {
+            width: 100%;
+            height: auto;
+        }
+
+        #here {
+            margin-top: -80px; /* Поднимаем блок с кнопкой выше */
+            width: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #here img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .controls input[type=range] {
+                width: 150px;
+            }
+
+            /* Дополнительные стили для мобильных устройств */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="index.html"><img src="https://telegra.ph/file/4b88b5c11d2bac27e6c4b.png" alt="Back"></a>
+    </div>
+    <div class="controls">
+        <img id="topImage" src="https://telegra.ph/file/48228d6a317fcd495aa21.png" alt="Top Image"
+            style="width: 320px; height:120px; border-radius: 10px;">
+        <h2>Works with <b>3х6</b></h2>
+        <button id="signalButton"><img src="https://telegra.ph/file/e349f8838349c2087ccae.png" alt="Signal Button"></button>
+        <a href="https://1wnxy.com/casino/play/1play_1play_bombucks"><button id="here"><img
+                    src="https://telegra.ph/file/c96f2e9a7697fa47d673e.png" alt="Secondary Button"></button></a>
+    </div>
+
+    <script>
+        const topImage = document.getElementById('topImage');
+        const signalButton = document.getElementById('signalButton');
+        const images = [
+            'https://telegra.ph/file/be20af36cc56a5fcf1e8e.jpg',
+            'https://telegra.ph/file/0be4d1a2fff4a36641db3.jpg',
+            'https://telegra.ph/file/1f7d59783e8d88117ead2.jpg'
+        ];
+
+        signalButton.addEventListener('click', () => {
+            const randomImageIndex = Math.floor(Math.random() * images.length);
+            topImage.src = images[randomImageIndex];
+        });
+    </script>
+</body>
+
+</html>

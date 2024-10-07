@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinesAI</title>
+    <style>
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: url('https://img.freepik.com/premium-photo/money-background_910325-13917.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    overflow: hidden; 
+}
+
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+        .header img {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 10px 0;
+        }
+        .mint img {
+            width: 65%;
+            margin-top: -100px;
+        }
+        .subheader img {
+            width: 50%;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
+        .grid {
+            margin-top:13%;
+            background-color: black;
+            display: grid;
+            grid-template-columns: repeat(5, 50px);
+            grid-template-rows: repeat(5, 50px);
+            gap: 5px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 10px orange;
+        }
+        .grid div {
+            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: background-color 0.5s;
+        }
+        .controls {
+/*             margin-top: 20px; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .controls label {
+            margin-top: 30px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .controls input[type=range] {
+            width: 200px;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 10px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .15s ease-in-out;
+            border-radius: 10px;
+            font-size: 2rem;
+        }
+        .controls input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #6200ea;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 50%;
+        }
+        .controls button {
+           margin-top: -80px;
+            width: 60%;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+        .controls button img {
+            width: 80%;
+        }
+        #signalButton {
+            margin-bottom: -30px;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        #signalButton img {
+            width: 100%;
+            height: auto;
+        }
+
+        #here {
+            margin-top: -70px; /* Поднимаем блок с кнопкой выше */
+            width: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #here img {
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main-content">
+    <div class="header">
+        <a href="index.html"><img src="https://telegra.ph/file/4b88b5c11d2bac27e6c4b.png" alt="Back"></a>
+        <!-- <img src="https://telegra.ph/file/10b539bde0f1336c0873a.png" alt="Menu"> -->
+    </div>
+    <!-- <div class="mint"><img src="https://telegra.ph/file/2fc2c05dade5541c34f22.png" alt="mint"></div> -->
+    <!-- <div class="subheader"><img src="https://telegra.ph/file/eff04243c5ae4f8d036ff.png"></div> -->
+    <div class="grid" id="grid"></div>
+    <div class="controls">
+        <label for="slider">NUMBER OF TRAPS</label>
+        <input type="range" id="slider" min="1" max="7" value="1" step="2">
+        <span id="sliderValue">1</span>
+        <button id="signalButton"><img src="https://telegra.ph/file/e349f8838349c2087ccae.png" alt="Signal Button"></button>
+        <a href="https://1wdgx.com/casino/play/1play_1play_mines"><button id="here"><img src="https://telegra.ph/file/c96f2e9a7697fa47d673e.png" alt="Secondary Button"></button></a>
+    </div>
+
+    <!-- Звуковой файл для воспроизведения -->
+    <audio id="sound">
+        <source src="facebook_sms.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        const grid = document.getElementById('grid');
+        const slider = document.getElementById('slider');
+        const sliderValue = document.getElementById('sliderValue');
+        const signalButton = document.getElementById('signalButton');
+        const sound = document.getElementById('sound');
+
+        // Create the grid
+        for (let i = 0; i < 25; i++) {
+            const cell = document.createElement('div');
+            grid.appendChild(cell);
+        }
+
+        // Update slider value
+        slider.addEventListener('input', () => {
+            sliderValue.textContent = slider.value;
+        });
+
+        // Handle signal button click
+        signalButton.addEventListener('click', async () => {
+            const sliderVal = parseInt(slider.value);
+            const cells = Array.from(grid.children);
+            let changeCount = 0;
+
+            // Calculate number of cells to change based on slider value
+            if (sliderVal === 1) {
+                changeCount = 7;
+            } else if (sliderVal === 3) {
+                changeCount = 5;
+            } else if (sliderVal === 5) {
+                changeCount = 4;
+            } else if (sliderVal === 7) {
+                changeCount = 3;
+            }
+
+            // Clear previous stars
+            cells.forEach(cell => {
+                cell.textContent = '';
+                cell.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+            });
+
+            // Change cells one by one with animation and play sound
+            const changedIndices = [];
+            for (let i = 0; i < changeCount; i++) {
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * cells.length);
+                } while (changedIndices.includes(randomIndex) || cells[randomIndex].textContent === '⭐');
+                
+                changedIndices.push(randomIndex);
+                
+                await new Promise(resolve => {
+                    setTimeout(() => {
+                        cells[randomIndex].textContent = '⭐';
+                        cells[randomIndex].style.backgroundColor = 'transparent';
+                        sound.play(); // Воспроизведение звука
+                        resolve();
+                    }, 300 * i); // 300ms delay between each change
+                });
+            }
+        });
+    </script>
+    </div>
+</body>
+</html>
